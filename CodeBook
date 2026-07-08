@@ -1,0 +1,273 @@
+
+CodeBook
+============================================================
+
+Getting and Cleaning Data Course Project
+Johns Hopkins University
+Getting and Cleaning Data (Coursera)
+
+============================================================
+DATASET DESCRIPTION
+============================================================
+
+The data used in this project were obtained from the Human Activity
+Recognition Using Smartphones Dataset.
+
+Data were collected from the accelerometer and gyroscope sensors
+embedded in a Samsung Galaxy S smartphone.
+
+Thirty volunteers performed six different activities while carrying
+the smartphone. Sensor signals were measured and processed to produce
+a set of variables describing motion and body activity.
+
+============================================================
+SOURCE DATA
+============================================================
+
+The following files from the original dataset were used:
+
+features.txt
+activity_labels.txt
+
+train/X_train.txt
+train/y_train.txt
+train/subject_train.txt
+
+test/X_test.txt
+test/y_test.txt
+test/subject_test.txt
+
+The files contained in the Inertial Signals directories were not used.
+
+============================================================
+DATA CLEANING PROCESS
+============================================================
+
+The run_analysis.R script performs the following steps:
+
+1. Reads the training and test datasets.
+
+2. Merges the training and test datasets into one dataset.
+
+3. Assigns descriptive variable names using features.txt.
+
+4. Extracts only variables containing:
+
+       mean()
+       std()
+
+5. Replaces activity identifiers with descriptive activity names
+   using activity_labels.txt.
+
+6. Cleans variable names to improve readability by removing
+   special characters such as parentheses and dashes.
+
+7. Creates a second tidy dataset containing the average of every
+   measurement variable for each activity and subject.
+
+8. Exports the resulting tidy dataset to:
+
+       tidyData.txt
+
+============================================================
+TIDY DATASET STRUCTURE
+============================================================
+
+Observations: 180
+
+Variables: 68
+
+The dataset contains:
+
+- 30 subjects
+- 6 activities
+- 66 averaged measurement variables
+
+Each row represents a unique combination of:
+
+       Subject + Activity
+
+Each measurement variable contains the average value for that
+subject/activity combination.
+
+============================================================
+IDENTIFIER VARIABLES
+============================================================
+
+Subject
+
+Description:
+Identifier of the participant.
+
+Values:
+1 through 30
+
+------------------------------------------------------------
+
+Activity
+
+Description:
+Activity performed by the participant.
+
+Possible Values:
+
+WALKING
+WALKING_UPSTAIRS
+WALKING_DOWNSTAIRS
+SITTING
+STANDING
+LAYING
+
+============================================================
+MEASUREMENT VARIABLES
+============================================================
+
+The following 66 variables were retained because they represent
+means or standard deviations from the original dataset.
+
+tBodyAccMeanX
+tBodyAccMeanY
+tBodyAccMeanZ
+tBodyAccStdX
+tBodyAccStdY
+tBodyAccStdZ
+
+tGravityAccMeanX
+tGravityAccMeanY
+tGravityAccMeanZ
+tGravityAccStdX
+tGravityAccStdY
+tGravityAccStdZ
+
+tBodyAccJerkMeanX
+tBodyAccJerkMeanY
+tBodyAccJerkMeanZ
+tBodyAccJerkStdX
+tBodyAccJerkStdY
+tBodyAccJerkStdZ
+
+tBodyGyroMeanX
+tBodyGyroMeanY
+tBodyGyroMeanZ
+tBodyGyroStdX
+tBodyGyroStdY
+tBodyGyroStdZ
+
+tBodyGyroJerkMeanX
+tBodyGyroJerkMeanY
+tBodyGyroJerkMeanZ
+tBodyGyroJerkStdX
+tBodyGyroJerkStdY
+tBodyGyroJerkStdZ
+
+tBodyAccMagMean
+tBodyAccMagStd
+
+tGravityAccMagMean
+tGravityAccMagStd
+
+tBodyAccJerkMagMean
+tBodyAccJerkMagStd
+
+tBodyGyroMagMean
+tBodyGyroMagStd
+
+tBodyGyroJerkMagMean
+tBodyGyroJerkMagStd
+
+fBodyAccMeanX
+fBodyAccMeanY
+fBodyAccMeanZ
+fBodyAccStdX
+fBodyAccStdY
+fBodyAccStdZ
+
+fBodyAccJerkMeanX
+fBodyAccJerkMeanY
+fBodyAccJerkMeanZ
+fBodyAccJerkStdX
+fBodyAccJerkStdY
+fBodyAccJerkStdZ
+
+fBodyGyroMeanX
+fBodyGyroMeanY
+fBodyGyroMeanZ
+fBodyGyroStdX
+fBodyGyroStdY
+fBodyGyroStdZ
+
+fBodyAccMagMean
+fBodyAccMagStd
+
+fBodyBodyAccJerkMagMean
+fBodyBodyAccJerkMagStd
+
+fBodyBodyGyroMagMean
+fBodyBodyGyroMagStd
+
+fBodyBodyGyroJerkMagMean
+fBodyBodyGyroJerkMagStd
+
+============================================================
+VARIABLE NAMING CONVENTIONS
+============================================================
+
+Prefixes
+
+t = Time domain signal
+f = Frequency domain signal
+
+------------------------------------------------------------
+
+Sensors
+
+Acc  = Accelerometer
+Gyro = Gyroscope
+
+------------------------------------------------------------
+
+Signal Types
+
+BodyAcc      = Body acceleration
+GravityAcc   = Gravity acceleration
+BodyAccJerk  = Jerk signal derived from body acceleration
+BodyGyro     = Body angular velocity
+BodyGyroJerk = Jerk signal derived from body angular velocity
+
+------------------------------------------------------------
+
+Statistics
+
+Mean = Mean value
+Std  = Standard deviation
+
+------------------------------------------------------------
+
+Directions
+
+X = X-axis
+Y = Y-axis
+Z = Z-axis
+
+------------------------------------------------------------
+
+Magnitude
+
+Mag = Magnitude of a three-dimensional signal
+
+============================================================
+OUTPUT FILE
+============================================================
+
+tidyData.txt
+
+Description:
+
+A tidy dataset containing the average of each selected measurement
+variable for each activity and each subject.
+
+Each row corresponds to one subject performing one activity.
+
+============================================================
+END OF CODE BOOK
+============================================================
